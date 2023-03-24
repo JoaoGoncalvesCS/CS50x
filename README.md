@@ -1,0 +1,2 @@
+# cs50x
+CS50x's 2022 course projects
