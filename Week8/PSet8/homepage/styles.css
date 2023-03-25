@@ -1,0 +1,44 @@
+body {
+    background-color: black;
+    color: blue;
+  }
+
+  h1 {
+    background-color: dark gray;
+    color: white;
+    text-align: center;
+      }
+
+  .piccenter {
+    position: absolute;
+    right: 60%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  h5
+  .center {
+    position: absolute;
+    left: 55%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    border: 5px solid gray;
+    padding: 10px;
+    }
+
+  .boxed {
+    float: right;
+    text-align: center;
+    border: 1px solid blue ;
+    background-color: dark gray;
+    color: DodgerBlue;
+  }
+
+  .buttons{
+    position: absolute;
+    left: 55%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    border: 5px solid gray;
+    padding: 10px;
+    }

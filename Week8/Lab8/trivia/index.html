@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function listen() {
+                let btnElements = document.querySelectorAll('.multiple');
+                let submitBtnElement = document.querySelector('#confirm-btn');
+                let multipleIsAnswered = false;
+                let freeIsAnswered = false;
+
+                for (let btnElement of btnElements) {
+                    btnElement.addEventListener('click', event => multipleChoice(event));
+                }
+
+                submitBtnElement.addEventListener('click', freeResponse)
+                function multipleChoice(event) {
+                    if (multipleIsAnswered == true){
+                        return;
+                    }
+                    const currentBtnElement = event.target;
+                    let newH4Element = document.createElement('h4');
+
+                    if (currentBtnElement.classList.contains('correct')) {
+                        currentBtnElement.style.background = 'green';
+                        newH4Element.textContent = 'Correct!';
+                    }
+                    else{
+                        currentBtnElement.style.background = 'red';
+                        newH4Element.textContent = 'Incorrect!';
+                    }
+                    let divElement = currentBtnElement.parentElement;
+                    divElement.appendChild(newH4Element);
+                    multipleIsAnswered = true;
+                }
+                function freeResponse()
+                {
+                    let answerInputElement = document.querySelector('#free-response');
+                    let answer =  answerInputElement.value;
+                    let newH4Element = document.createElement('h4');
+                    if (freeIsAnswered == true)
+                    {
+                        return;
+                    }
+                    if (answer == 'no')
+                    {
+                        answerInputElement.style.background = 'green';
+                        newH4Element.textcontent = 'Correct!';
+                    }
+                    else
+                    {
+                        answerInputElement.style.background = 'red';
+                        newH4Element.textcontent = 'Incorrect!';
+                    }
+                    let divElement = answerInputElement.parentElement;
+                    divElement.appendChild(newH4Element);
+                    freeIsAnswered = true;
+                }
+            })
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the capital of Portugal?</h3>
+                <button class="multiple incorrect">Aveiro</button>
+                <button class="multiple correct">Lisbon</button>
+                <button class="multiple incorrect">Coimbra</button>
+                <button class="multiple incorrect">Porto</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>
+                    Is Portugal a part of the country of Spain?
+                </h3>
+                <input id="free-response" type="text" placeholder="Answer">
+                <button id="confirm-btn">
+                    Submit Answer
+                </button>
+            </div>
+    </body>
+</html>
